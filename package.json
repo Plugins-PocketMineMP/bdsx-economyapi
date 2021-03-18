@@ -1,0 +1,23 @@
+{
+  "name": "@bdsx/economyapi",
+  "version": "1.0.0",
+  "description": "economy plugin",
+  "main": "index.js",
+  "bdsxPlugin": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvin0319/bds-economyapi.git"
+  },
+  "author": "alvin0319",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alvin0319/bds-economyapi/issues"
+  },
+  "homepage": "https://github.com/alvin0319/bds-economyapi#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
