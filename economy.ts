@@ -368,10 +368,10 @@ export class User{
 
 export const MAXIMUM_MONEY = 1000000000;
 
-export const RET_SUCCESS = 0;
+export const RET_SUCCESS = -1;
 
-export const RET_INVALID = 1;
+export const RET_INVALID = -2;
 
-export const RET_NOT_ENOUGH_MONEY = 2;
+export const RET_NOT_ENOUGH_MONEY = -3;
 
-export const RET_NO_ACCOUNT = -1;
+export const RET_NO_ACCOUNT = -4;
