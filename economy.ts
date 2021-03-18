@@ -27,11 +27,15 @@ if(!existsSync(__dirname + "/money.json")){
 
 const moneyData = JSON.parse(readFileSync(__dirname + "/money.json").toString());
 
+const id = setInterval(async () => {
+	writeData();
+	await writeFile();
+}, 1000 * 60);
+
 bedrockServer.close.on(async () => {
-	for(const user of moneys.values()){
-		moneyData[user.getPlayer().toLowerCase()] = user.getMoney();
-	}
-	await writeFileSync("money.json", JSON.stringify(moneyData));
+	writeData();
+	await writeFile();
+	clearInterval(id);
 });
 
 events.playerJoin.on((event) => {
@@ -41,6 +45,16 @@ events.playerJoin.on((event) => {
 		moneys.set(player.getName().toLowerCase(), new User(player.getName().toLowerCase(), moneyData[player.getName().toLowerCase()] ?? settings.default_money));
 	}
 });
+
+function writeData(): void{
+	for(const user of moneys.values()){
+		moneyData[user.getPlayer().toLowerCase()] = user.getMoney();
+	}
+}
+
+async function writeFile(): Promise<void>{
+	await writeFileSync("money.json", JSON.stringify(moneyData));
+}
 
 nethook.after(PacketId.Disconnect).on((packet, networkIdentifier, packetId) => {
 	const ip = networkIdentifier.getAddress();
