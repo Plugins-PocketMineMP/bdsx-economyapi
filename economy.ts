@@ -1,3 +1,4 @@
+//can I help work on some things in this and use this part?
 import { MinecraftPacketIds } from 'bdsx/bds/packetids';
 import {events} from "bdsx/event";
 import {TextPacket} from "bdsx/bds/packets";
